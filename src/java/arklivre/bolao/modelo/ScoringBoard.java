@@ -17,8 +17,14 @@
 
 package arklivre.bolao.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class ScoringBoard {
     
+    @Id
+    private int id;
     private int idUser;
     private int idTournament;
     private int score;

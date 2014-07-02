@@ -17,16 +17,24 @@
 
 package arklivre.bolao.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class User {
     
+    @Id
     private int id;
     private String name;
-    private boolean admin;
+    private boolean adm;
+    
+    public User() {
+    }
 
-    public User(int id, String name, boolean admin) {
+    public User(int id, String name, boolean adm) {
         this.id = id;
         this.name = name;
-        this.admin = admin;
+        this.adm = adm;
     }
 
     public int getId() {
@@ -45,12 +53,12 @@ public class User {
         this.name = name;
     }
 
-    public boolean isAdmin() {
-        return admin;
+    public boolean isAdm() {
+        return adm;
     }
 
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
+    public void setAdmin(boolean adm) {
+        this.adm = adm;
     }
     
 }

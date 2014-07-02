@@ -17,13 +17,22 @@
 
 package arklivre.bolao.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Bid {
     
+    @Id
     private int id;
     private int idUser;
     private int idMatch;
     private int homeScore;
     private int visitorScore;
+    
+    public Bid(){
+        
+    }
 
     public Bid(int id, int idUser, int idMatch, int homeScore, int visitorScore) {
         this.id = id;

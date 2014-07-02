@@ -17,10 +17,18 @@
 
 package arklivre.bolao.modelo;
 
-class Team {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Team {
     
+    @Id
     private int id;
     private String name;
+
+    public Team() {
+    }
 
     public Team(int id, String name) {
         this.id = id;

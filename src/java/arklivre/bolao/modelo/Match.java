@@ -17,8 +17,13 @@
 
 package arklivre.bolao.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Match {
     
+    @Id
     private int id;
     private int idTournament;
     private String info;
@@ -26,6 +31,9 @@ public class Match {
     private Team visitor;
     private int homeScore;
     private int visitorScore;
+
+    public Match() {
+    }
 
     public Match(int id, int idTournament, String info, Team home, Team visitor, int homeScore, int visitorScore) {
         this.id = id;
