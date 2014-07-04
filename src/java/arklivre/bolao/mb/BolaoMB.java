@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package arklivre.bolao.mb;
 
 import arklivre.bolao.modelo.*;
@@ -24,33 +23,55 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class BolaoMB {
-    
+
     private User login;
+    private String user;
+    private String password;
 
     public BolaoMB() {
     }
-    
-    public void login(String user, String password){
-        //Realiza o login na aplicação
+
+    public void login() {
+        if (user == "ramon" && password == "123") {
+            //senha correta
+        } else {
+            //senhaincorreta
+        }
     }
-    
-    public void createTournament(Tournament tournament){
+
+    public void createTournament(Tournament tournament) {
         //Cria um novo campeonato, apenas para usuario ADMIN
         //Verifica se o usuario é admin e redireciona para a pagina de criar
     }
-    
-    public void editTournament(Tournament tournament){
+
+    public void editTournament(Tournament tournament) {
         //Edita um campeonato existente, apenas para usuário ADMIN
         //Verifica se o usuário é admin e redireciona para a pagina de editar
         //Também inclui o resultado das partidas
     }
-    
-    public void scoreBoard(Tournament tournament){
+
+    public void scoreBoard(Tournament tournament) {
         //Visualiza a pontuação de determinado campeonato
     }
-    
-    public void bidTournament(Tournament tournament){
+
+    public void bidTournament(Tournament tournament) {
         //Redireciona para a pagina de apostas de um determinado campeonato
     }
-    
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 }
