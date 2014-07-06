@@ -28,5 +28,37 @@ public class ScoringBoard {
     private int idUser;
     private int idTournament;
     private int score;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
+    public int getIdTournament() {
+        return idTournament;
+    }
+
+    public void setIdTournament(int idTournament) {
+        this.idTournament = idTournament;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
     
 }

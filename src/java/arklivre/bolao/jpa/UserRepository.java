@@ -52,16 +52,12 @@ public class UserRepository {
     }
     
     public static List<User> getUsers(String name) {
-        /*
         EntityManager em = JPA.getEM();
         TypedQuery<User> query = em.createQuery(
                 "select p from user p where p.name "
                         + "like :nome", User.class);
         query.setParameter("valor", "%" + name + "%");
         return query.getResultList();
-        */
-        
-        return null;
     }
     
 }
