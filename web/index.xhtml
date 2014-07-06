@@ -56,13 +56,13 @@
             <h:form>
                 <div class="panel">
                     <label>Nome
-                        <input type="text" placeholder="large-12.columns" />
+                        <h:inputText id="registerName" value="#{registerMB.user.name}"/>
                     </label>
                     <label>Email
-                        <input type="text" placeholder="large-12.columns" />
+                        <h:inputText id="registerEmail" value="#{registerMB.user.email}"/>
                     </label>
                     <label>Password
-                        <input type="text" placeholder="large-12.columns" />
+                        <h:inputSecret id="registerPassword" value="#{registerMB.user.password}"/>
                     </label>
 
                     <div class="row">
@@ -70,7 +70,7 @@
                             <p></p>
                         </div>
                         <div class="large-4 columns">
-                            <a href="#" class="button expand">Cadastrar</a>
+                            <h:commandLink class="button expand" action="#{registerMB.register()}" value="Cadastrar"/>
                         </div>
                         <div class="large-4 columns">
                             <p></p>

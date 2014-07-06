@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package arklivre.bolao.jpa;
 
 import arklivre.bolao.modelo.User;
@@ -24,8 +23,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 public class UserRepository {
-    
-     public static void save(User user) {
+
+    public static void save(User user) {
         EntityManager em = JPA.getEM();
         EntityTransaction t = em.getTransaction();
         t.begin();
@@ -45,19 +44,36 @@ public class UserRepository {
         EntityManager em = JPA.getEM();
         return em.find(User.class, id);
     }
-    
+
     public static List<User> getUsers() {
         EntityManager em = JPA.getEM();
-        return em.createQuery("select p from user p", User.class).getResultList();
+        return em.createQuery("select u from User u", User.class).getResultList();
     }
-    
+
     public static List<User> getUsers(String name) {
         EntityManager em = JPA.getEM();
         TypedQuery<User> query = em.createQuery(
-                "select p from user p where p.name "
-                        + "like :nome", User.class);
+                "select p from User p where p.name "
+                + "like :nome", User.class);
         query.setParameter("valor", "%" + name + "%");
         return query.getResultList();
     }
-    
+
+    public static Integer nextId() {
+        
+        /* Este método precisa ser revisto
+        Deve retornar o valor do último usuário inserido + 1
+        Está retornando o número de usuários no total + 1
+        */
+        
+        EntityManager em = JPA.getEM();
+        /*
+        Integer next = em.createQuery("select coalesce(max(id),0) from user",
+                Integer.class).getSingleResult();
+                */
+        
+        List<User> list = em.createQuery("select p from User p", User.class).getResultList();
+        return list.size()+1;
+    }
+
 }

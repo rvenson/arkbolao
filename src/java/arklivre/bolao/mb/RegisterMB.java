@@ -14,35 +14,40 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-package arklivre.bolao.test;
+package arklivre.bolao.mb;
 
 import arklivre.bolao.jpa.UserRepository;
 import arklivre.bolao.modelo.User;
-import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
-public class Test {
-    
-    public static void main(String[] args){
-        
-        try{
-            
-            User user = new User();
-            user.setAdmin(true);
-            user.setId(2);
-            user.setName("teste2");
-            user.setEmail("teste@teste");
-            user.setPassword("teste");
-            UserRepository.save(user);
-            
-            List<User> list = UserRepository.getUsers();
-            for(User u : list){
-                System.out.println("User: " + u.getName());
-            }
-            
-        } catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }
+@ManagedBean
+@RequestScoped
+public class RegisterMB {
+
+    User user;
+
+    /**
+     * Creates a new instance of RegisterMB
+     */
+    public RegisterMB() {
+        user = new User();
     }
-    
+
+    public void register() {
+        Integer next = UserRepository.nextId();
+        user.setAdmin(true);
+        user.setId(next);
+        System.out.println("next: " + next);
+        UserRepository.save(user);
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 }
