@@ -5,7 +5,7 @@
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://venson.net.br/bolao"/>
-      <property name="javax.persistence.jdbc.password" value="d3CA7ELHmu34KFWq"/>
+      <property name="javax.persistence.jdbc.password" value="K4aSDjYNfpBZBRhj"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.user" value="bolao"/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>

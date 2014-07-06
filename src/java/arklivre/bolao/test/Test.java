@@ -34,7 +34,9 @@ public class Test {
             user.setAdmin(true);
             user.setId(1);
             user.setName("teste");
-//            UserRepository.save(user);
+            user.setEmail("teste@teste");
+            user.setPassword("teste");
+            UserRepository.save(user);
             
             user = (User) UserRepository.getUser(1);
             System.out.println("user: " + user.getName());

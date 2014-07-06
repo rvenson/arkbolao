@@ -26,15 +26,19 @@ public class User {
     @Id
     private int id;
     private String name;
-    private boolean adm;
+    private String password;
+    private String email;
+    private boolean admin;
     
     public User() {
     }
 
-    public User(int id, String name, boolean adm) {
+    public User(int id, String name, String password, String email, boolean admin) {
         this.id = id;
         this.name = name;
-        this.adm = adm;
+        this.password = password;
+        this.email = email;
+        this.admin = admin;
     }
 
     public int getId() {
@@ -53,12 +57,27 @@ public class User {
         this.name = name;
     }
 
-    public boolean isAdm() {
-        return adm;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAdmin(boolean adm) {
-        this.adm = adm;
+    public void setPassword(String password) {
+        this.password = password;
     }
-    
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
 }
