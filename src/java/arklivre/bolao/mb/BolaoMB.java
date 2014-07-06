@@ -31,11 +31,11 @@ public class BolaoMB {
     public BolaoMB() {
     }
 
-    public void login() {
-        if (user == "ramon" && password == "123") {
-            //senha correta
+    public String login() {
+        if ("ramon".equals(user) && "123".equals(password)) {
+            return "sucess";
         } else {
-            //senhaincorreta
+            return "fail";
         }
     }
 

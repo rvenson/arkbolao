@@ -34,7 +34,7 @@ public class Test {
             user.setAdmin(true);
             user.setId(1);
             user.setName("teste");
-            UserRepository.save(user);
+//            UserRepository.save(user);
             
             user = (User) UserRepository.getUser(1);
             System.out.println("user: " + user.getName());
