@@ -21,21 +21,21 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Match {
+public class Games {
     
     @Id
-    private int id;
-    private int idTournament;
+    private Integer id;
+    private Integer idTournament;
     private String info;
-    private Team home;
-    private Team visitor;
-    private int homeScore;
-    private int visitorScore;
+    private String home;
+    private String visitor;
+    private Integer homeScore;
+    private Integer visitorScore;
 
-    public Match() {
+    public Games() {
     }
 
-    public Match(int id, int idTournament, String info, Team home, Team visitor, int homeScore, int visitorScore) {
+    public Games(Integer id, Integer idTournament, String info, String home, String visitor, Integer homeScore, Integer visitorScore) {
         this.id = id;
         this.idTournament = idTournament;
         this.info = info;
@@ -45,19 +45,19 @@ public class Match {
         this.visitorScore = visitorScore;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getIdTournament() {
+    public Integer getIdTournament() {
         return idTournament;
     }
 
-    public void setIdTournament(int idTournament) {
+    public void setIdTournament(Integer idTournament) {
         this.idTournament = idTournament;
     }
 
@@ -69,36 +69,35 @@ public class Match {
         this.info = info;
     }
 
-    public Team getHome() {
+    public String getHome() {
         return home;
     }
 
-    public void setHome(Team home) {
+    public void setHome(String home) {
         this.home = home;
     }
 
-    public Team getVisitor() {
+    public String getVisitor() {
         return visitor;
     }
 
-    public void setVisitor(Team visitor) {
+    public void setVisitor(String visitor) {
         this.visitor = visitor;
     }
 
-    public int getHomeScore() {
+    public Integer getHomeScore() {
         return homeScore;
     }
 
-    public void setHomeScore(int homeScore) {
+    public void setHomeScore(Integer homeScore) {
         this.homeScore = homeScore;
     }
 
-    public int getVisitorScore() {
+    public Integer getVisitorScore() {
         return visitorScore;
     }
 
-    public void setVisitorScore(int visitorScore) {
+    public void setVisitorScore(Integer visitorScore) {
         this.visitorScore = visitorScore;
     }
-    
 }

@@ -48,7 +48,7 @@ public class BidRepository {
     
     public static List<Bid> getUsers() {
         EntityManager em = JPA.getEM();
-        return em.createQuery("select p from bid p", Bid.class).getResultList();
+        return em.createQuery("select p from Bid p", Bid.class).getResultList();
     }
     
 }

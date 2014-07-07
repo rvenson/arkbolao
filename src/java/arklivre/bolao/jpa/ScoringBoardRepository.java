@@ -48,7 +48,7 @@ public class ScoringBoardRepository {
     
     public static List<ScoringBoard> getUsers() {
         EntityManager em = JPA.getEM();
-        return em.createQuery("select p from scoringboard p", ScoringBoard.class).getResultList();
+        return em.createQuery("select p from Scoringboard p", ScoringBoard.class).getResultList();
     }
     
 }

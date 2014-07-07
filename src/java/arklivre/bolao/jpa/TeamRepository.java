@@ -48,13 +48,13 @@ public class TeamRepository {
     
     public static List<Team> getUsers() {
         EntityManager em = JPA.getEM();
-        return em.createQuery("select p from team p", Team.class).getResultList();
+        return em.createQuery("select p from Team p", Team.class).getResultList();
     }
     
     public static List<Team> getUsers(String name) {
         EntityManager em = JPA.getEM();
         TypedQuery<Team> query = em.createQuery(
-                "select p from team p where p.name "
+                "select p from Team p where p.name "
                         + "like :nome", Team.class);
         query.setParameter("valor", "%" + name + "%");
         return query.getResultList();

@@ -17,36 +17,56 @@
 
 package arklivre.bolao.mb;
 
+import arklivre.bolao.jpa.MatchRepository;
+import arklivre.bolao.jpa.TournamentRepository;
 import arklivre.bolao.modelo.*;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class TournamentMB {
     
-    private Tournament tournament;
-    private Match match;
-    private ArrayList<Match> arrayMatch = new ArrayList();
-    private User login;
-
-    public TournamentMB(User login) {
-        this.login = login;
-        
-        //Talvez dê pra colocar a validação do usuário aqui
+    private Tournament tournament = new Tournament();
+    private Games match = new Games();
+    private ArrayList<Games> arrayMatch = new ArrayList();
+    
+    public TournamentMB(){
     }
     
     public void addMatch(){
-        //Adiciona ou atualiza um jogo na arrayList
+        arrayMatch.add(match);
+        match = new Games();
     }
     
-    public void removeMatch(){
-        //Remove um jogo da arrayList
+    public void removeMatch(Games m){
+        arrayMatch.remove(m);
     }
     
-    public void saveTournament(String tournamentName){
-        //Finaliza e grava tudo no banco
+    public void saveTournament(){
+        Integer next = TournamentRepository.nextId();
+        
+        System.out.println("next: " + next + " - Torneio: " + tournament.getName());
+        tournament.setId(next);
+        TournamentRepository.save(tournament);
+
+        for(Games m : arrayMatch){
+            m.setIdTournament(next);
+            m.setId(MatchRepository.nextId());
+            m.setHomeScore(null);
+            m.setVisitorScore(null);
+            MatchRepository.save(m);
+        }
+        
+        tournament = new Tournament();
+        arrayMatch = new ArrayList();
+        match = new Games();
+    }
+    
+    public void removeTournament(Tournament t){
+        System.out.println(">>>>>>>>>>>>>>>>>>Torneio"+ t.getName() + t.getId());
+        TournamentRepository.delete(t);
     }
 
     public Tournament getTournament() {
@@ -57,19 +77,19 @@ public class TournamentMB {
         this.tournament = tournament;
     }
 
-    public Match getMatch() {
+    public Games getMatch() {
         return match;
     }
 
-    public void setMatch(Match match) {
+    public void setMatch(Games match) {
         this.match = match;
     }
 
-    public ArrayList<Match> getArrayMatch() {
+    public ArrayList<Games> getArrayMatch() {
         return arrayMatch;
     }
 
-    public void setArrayMatch(ArrayList<Match> arrayMatch) {
+    public void setArrayMatch(ArrayList<Games> arrayMatch) {
         this.arrayMatch = arrayMatch;
     }
     

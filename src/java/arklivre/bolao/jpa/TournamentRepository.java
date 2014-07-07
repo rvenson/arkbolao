@@ -48,16 +48,23 @@ public class TournamentRepository {
     
     public static List<Tournament> getTournaments() {
         EntityManager em = JPA.getEM();
-        return em.createQuery("select p from tournament p", Tournament.class).getResultList();
+        return em.createQuery("select p from Tournament p", Tournament.class).getResultList();
     }
     
     public static List<Tournament> getTournaments(String name) {
         EntityManager em = JPA.getEM();
         TypedQuery<Tournament> query = em.createQuery(
-                "select p from tournament p where p.name "
+                "select p from Tournament p where p.name "
                         + "like :nome", Tournament.class);
         query.setParameter("valor", "%" + name + "%");
         return query.getResultList();
+    }
+    
+    public static Integer nextId() {
+        EntityManager em = JPA.getEM();
+        
+        List<Tournament> list = em.createQuery("select p from Tournament p", Tournament.class).getResultList();
+        return list.size()+1;
     }
     
 }

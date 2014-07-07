@@ -53,8 +53,8 @@ public class UserRepository {
     public static List<User> getUsers(String name) {
         EntityManager em = JPA.getEM();
         TypedQuery<User> query = em.createQuery(
-                "select p from User p where p.name "
-                + "like :nome", User.class);
+                "select u from User u where u.name "
+                + "like :valor", User.class);
         query.setParameter("valor", "%" + name + "%");
         return query.getResultList();
     }
@@ -72,7 +72,7 @@ public class UserRepository {
                 Integer.class).getSingleResult();
                 */
         
-        List<User> list = em.createQuery("select p from User p", User.class).getResultList();
+        List<User> list = em.createQuery("select u from User u", User.class).getResultList();
         return list.size()+1;
     }
 

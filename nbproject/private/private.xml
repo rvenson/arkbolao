@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/jeison/Desenvolvimento/COMP/JPW/arkbolao/setup/glassfish-resources.xml</file>
-            <file>file:/home/jeison/Desenvolvimento/COMP/JPW/arkbolao/src/conf/persistence.xml</file>
-            <file>file:/home/jeison/Desenvolvimento/COMP/JPW/arkbolao/src/java/arklivre/bolao/test/Test.java</file>
-            <file>file:/home/jeison/Desenvolvimento/COMP/JPW/arkbolao/src/java/arklivre/bolao/jpa/UserRepository.java</file>
+            <file>file:/home/venson/github/arkbolao/src/java/arklivre/bolao/test/Test.java</file>
+            <file>file:/home/venson/github/arkbolao/src/java/arklivre/bolao/jpa/TournamentRepository.java</file>
+            <file>file:/home/venson/github/arkbolao/web/newTournament.xhtml</file>
+            <file>file:/home/venson/github/arkbolao/src/java/arklivre/bolao/modelo/Match.java</file>
+            <file>file:/home/venson/github/arkbolao/web/index.xhtml</file>
+            <file>file:/home/venson/github/arkbolao/src/java/arklivre/bolao/modelo/Tournament.java</file>
+            <file>file:/home/venson/github/arkbolao/src/java/arklivre/bolao/mb/TournamentMB.java</file>
         </group>
     </open-files>
 </project-private>

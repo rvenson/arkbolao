@@ -16,32 +16,41 @@
  */
 package arklivre.bolao.mb;
 
+import arklivre.bolao.jpa.TournamentRepository;
+import arklivre.bolao.jpa.UserRepository;
 import arklivre.bolao.modelo.*;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class BolaoMB {
 
     private User login;
     private String user;
     private String password;
+    private List<Tournament> arrayTournament = null;
 
     public BolaoMB() {
+        arrayTournament = TournamentRepository.getTournaments();
     }
 
     public String login() {
-        if ("ramon".equals(user) && "123".equals(password)) {
-            return "sucess";
-        } else {
-            return "fail";
+        
+        List<User> users = UserRepository.getUsers(user);
+        
+        for(User u : users){
+            if(u.getPassword().equals(password)){
+                return "sucess";
+            }
         }
+            return "fail";
     }
 
-    public void createTournament(Tournament tournament) {
-        //Cria um novo campeonato, apenas para usuario ADMIN
-        //Verifica se o usuario é admin e redireciona para a pagina de criar
+    public String createTournament() {
+        //Redireciona para a pagina de cadastro de torneios
+        return "newTournament";
     }
 
     public void editTournament(Tournament tournament) {
@@ -56,6 +65,11 @@ public class BolaoMB {
 
     public void bidTournament(Tournament tournament) {
         //Redireciona para a pagina de apostas de um determinado campeonato
+    }
+    
+    public String back() {
+        //Redireciona para a página inicial
+        return "back";
     }
 
     public String getUser() {
@@ -72,6 +86,22 @@ public class BolaoMB {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public User getLogin() {
+        return login;
+    }
+
+    public void setLogin(User login) {
+        this.login = login;
+    }
+
+    public List<Tournament> getArrayTournament() {
+        return arrayTournament;
+    }
+
+    public void setArrayTournament(List<Tournament> arrayTournament) {
+        this.arrayTournament = arrayTournament;
     }
 
 }

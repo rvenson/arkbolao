@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>ArkBolão</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -25,26 +26,25 @@
                 <h:form>
                     <div class="panel">
                         <label>Nome
-                            <input type="text" placeholder="large-12.columns" />
+                            <h:inputText value="#{tournamentMB.tournament.name}"/>
                         </label>
                     </div>
                     <div class="panel">
                         <h5>Novo Jogo</h5>
-                        <h:form>
                             <div class="row">                     
                                 <div class="large-4 columns">
                                     <label>Time Casa
-                                        <input type="text" placeholder="large-4.columns" />
+                                        <h:inputText value="#{tournamentMB.match.home}"/>
                                     </label>
                                 </div>
                                 <div class="large-4 columns">
                                     <label>Time Visitante
-                                        <input type="text" placeholder="large-4.columns" />
+                                        <h:inputText value="#{tournamentMB.match.visitor}"/>
                                     </label>
                                 </div>
                                 <div class="large-4 columns">
                                     <label>Info+
-                                        <input type="text" placeholder="large-4.columns" />
+                                        <h:inputText value="#{tournamentMB.match.info}"/>
                                     </label>
                                 </div>
                             </div>
@@ -53,19 +53,37 @@
                                     <p></p>
                                 </div>
                                 <div class="large-4 columns">
-                                    <a href="#" class="button expand">Inserir</a>
+                                    <h:commandLink class="button expand" action="#{tournamentMB.addMatch()}" value="Inserir"/>
                                 </div>
                                 <div class="large-4 columns">
                                     <p></p>
                                 </div>
                             </div>
-                        </h:form>
                     </div>
 
                     <div class="panel">
                         <h5>Jogos</h5>
                         <div class="row">
-                            <p></p>
+                            <h:dataTable value="#{tournamentMB.arrayMatch}" var="o">                                       >
+                                <h:column>
+                                    <!-- column header -->
+                                    <f:facet name="header">Time Casa</f:facet>
+                                    <!-- row record -->
+                                    #{o.home}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Time Visitante</f:facet>
+                                        #{o.visitor}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Informação</f:facet>
+                                        #{o.info}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <h:commandLink class="button tiny expand" action="#{tournamentMB.removeMatch(o)}" value="Excluir"/>
+                                </h:column>
+                            </h:dataTable>
                         </div>
                     </div>
 
@@ -74,10 +92,10 @@
                             <p></p>
                         </div>
                         <div class="large-4 columns">
-                            <a href="#" class="button expand">Voltar</a>
+                            <h:commandLink class="button expand" action="#{bolaoMB.back()}" value="Voltar"/>
                         </div>
                         <div class="large-4 columns">
-                            <a href="#" class="button expand">Iniciar Torneio!</a>
+                            <h:commandLink class="button expand" action="#{tournamentMB.saveTournament()}" value="Iniciar Torneio!"/>
                         </div>
                     </div>
                 </h:form>
